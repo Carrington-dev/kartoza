@@ -1,0 +1,69 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+    .my_Row {
+        padding: 10vh;
+        background-color: transparent;
+        width: 100%;
+        height: 60vh;
+    }
+    
+    h4 {
+        color: #000;
+    }
+    
+    h6 {
+        color: #FFEA05;
+    }
+    
+    .myCustomButton {
+        background-color: #930A0C;
+        text-align: left;
+        padding: 5px;
+        color: #fff;
+        float: center;
+        border-radius: 10px;
+        text-align: center;
+        text-transform: capitilize;
+    }
+    
+    .myCustomButton:hover,
+    active {
+        background-color: #d70f12;
+        text-align: left;
+        padding: 5px;
+        color: #fff;
+        float: center;
+        border-radius: 10px;
+        text-align: center;
+        text-transform: capitilize;
+    }
+</style>
+
+
+
+<div class="container my_Row">
+    <div class="text-center">
+        <h4 class="mb-3 text-center">You are now logged out</h4>
+        <hr style="border-color:#930A0C; border-width: 2px" width="10%">
+    </div>
+    <div class="row text-center">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8 text-center">
+
+            <h6>You have successfully logged out of your account</h6>
+            <a class="btn myCustomButton" href="{% url 'login' %}">
+					      Login Again
+					    </a>
+
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+
+
+
+
+</div>
+
+{% endblock content %}

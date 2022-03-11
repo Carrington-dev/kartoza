@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>EliteAfriqa</title>
+    {% endif %}
+
+
+
+    <!-- CSS includes -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet" type="text/css">
+    <link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{% static 'css/theme.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'images/elite.png'  %}" />
+    <link rel="stylesheet" type="text/css" href="http://prepbootstrap.com/Content/shieldui-lite/dist/css/light/all.min.css" />
+
+
+    <style>
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
+        
+        .my-float {
+            margin-top: 16px;
+        }
+        
+        .row_important {
+            border-left: 60px solid #f2762e;
+            margin: 20px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+        }
+        
+        .row_important_text {
+            border-left: 60px solid #43bdec;
+            margin: 0px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+            padding: 10px;
+        }
+        
+        .header-text-row {
+            text-transform: uppercase;
+            font-size: 14pt;
+            font-weight: bolder;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .row_six_benefits {
+            border: 5px solid #262362;
+            border-bottom: 20px solid #262362;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+            padding-bottom: 20px;
+            height: 100%;
+        }
+        
+        .row_six_graphic {
+            border: 5px solid #43bdec;
+            border-bottom: 20px solid #43bdec;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+            padding-bottom: 20px;
+            height: 100%;
+            border-left: 60px solid #262362;
+            margin: 20px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+        }
+        
+        .row_six_graphic_title {
+            font-size: 14pt !important;
+            text-transform: uppercase !important;
+            font-weight: bolder;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .badge:after {
+            content: attr(value);
+            font-size: 12px;
+            background: #f2762e;
+            border-radius: 50%;
+            padding: 5px;
+            position: relative;
+            left: -8px;
+            top: -10px;
+            opacity: 0.9;
+        }
+        
+        .sidebar-title {
+            font-size: 20px;
+            position: relative;
+            margin: 0 0 25px;
+            font-weight: 600;
+        }
+        
+        .sidebar .search-box {
+            padding: 20px 20px 0 20px;
+            margin-bottom: 0;
+        }
+        
+        .form-search {
+            position: relative;
+        }
+        
+        .form-search .form-control {
+            box-shadow: none;
+            border: 1px solid #F7F7F7;
+            background: #F7F7F7;
+            border-radius: 3px;
+            height: 45px;
+        }
+        
+        .form-search .btn {
+            background: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 12px 12px 9px 13px;
+        }
+        
+        .form-search .btn:active,
+        .form-search .btn:focus {
+            box-shadow: none;
+            outline: none;
+        }
+        
+        .form-search .btn i {
+            color: #777;
+        }
+        
+        .form-search .form-group,
+        .form-search .form-control {
+            width: 100%;
+        }
+        
+        .blog-1 .blog-photo {
+            position: relative;
+        }
+        
+        .blog-1 .blog-photo img {
+            width: 100%;
+        }
+        /** Search start **/
+        
+        #search-style-1 {
+            transition: all 0.4s;
+        }
+        
+        #search-style-2 {
+            transition: all 0.4s;
+            position: absolute;
+            width: 100%;
+        }
+        
+        #search-style-3 {
+            width: 100%;
+            z-index: 999;
+            padding: 30px 0 100px;
+        }
+        
+        .row-2 {
+            margin-right: -7.5px;
+            margin-left: -7.5px;
+        }
+        
+        .row-3 {
+            margin-right: 0;
+            margin-left: 0;
+        }
+        
+        .item-bg {
+            height: 100vh;
+        }
+        
+        .search-area {
+            display: none;
+            width: 100%;
+            bottom: 80px;
+            text-align: left;
+            z-index: 999;
+            padding-top: 30px;
+        }
+        
+        .search-area-2 {
+            padding: 30px 0 0;
+        }
+        
+        .bg-grea {
+            background: #e6e6e6;
+        }
+        
+        .bg-grea-2 {
+            background: #fff;
+            box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bg-grea-3 {
+            background: #f9f9f8;
+        }
+        
+        .search-area-inner {
+            margin: 0 auto;
+        }
+        
+        .search-area-inner h1 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .search-area-inner .col-pad2 {
+            padding: 0 7.5px;
+        }
+        
+        .search-area-inner .show-more-options {
+            font-weight: 500;
+            font-size: 15px;
+            display: block;
+            margin-bottom: 0;
+        }
+        
+        .search-contents {
+            border-radius: 4px;
+            transition: 0.9s ease-out;
+        }
+        
+        .show-search-area {
+            z-index: 9999;
+            . search-contents transition: all 0.4 s;
+            display: block;
+        }
+        
+        .bootstrap-select.btn-group .dropdown-toggle .filter-option {
+            display: inline-block;
+            overflow: hidden;
+            width: 100%;
+            text-align: left;
+            font-size: 13px;
+            color: #777;
+            font-weight: 400;
+        }
+        
+        .search-options-btn,
+        .search-options-btn:hover {
+            padding: 12px 20px 10px 20px;
+            font-size: 13px;
+            font-weight: 400;
+            color: #FFF !important;
+            cursor: pointer;
+            z-index: 0;
+            letter-spacing: 1px;
+            position: absolute;
+            bottom: 10px;
+            border-radius: 50px;
+        }
+        
+        .search-options-btn,
+        .search-options-btn i {
+            margin-left: 5px;
+        }
+        
+        .search-options-btn .search-options {
+            float: left;
+        }
+        
+        .search-options-btn .icon {
+            float: left;
+        }
+        
+        .search-area label {
+            font-size: 12px;
+            color: #555;
+            font-weight: 600;
+        }
+        
+        .search-area .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .search-fields {
+            min-height: 45px;
+            padding: 0;
+            border-radius: 3px;
+            box-shadow: none;
+            border: 1px solid #e0e0e0;
+            background: #fff;
+        }
+        
+        .form-control {
+            padding-left: 15px;
+        }
+        
+        .search-fields button {
+            border-radius: 1px;
+            box-shadow: none;
+            border: none;
+            background: #fff !important;
+        }
+        
+        .search-button {
+            cursor: pointer;
+            padding: 13px 26px 11px;
+            letter-spacing: 1px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #FFF;
+            transition: .5s;
+            border-radius: 2px;
+            border: none;
+            width: 100%;
+            outline: none;
+        }
+        
+        .search-button:hover {
+            color: #fff;
+        }
+        
+        .inline-search-area .search-col {
+            padding: 0;
+            position: relative;
+        }
+        
+        .inline-search-area .icon-append {
+            color: #949494;
+            font-size: 15px;
+            left: 10px;
+            position: absolute;
+            top: 18px;
+        }
+        
+        .inline-search-area .search-col:first-child .form-control {
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .inline-search-area .search-col .form-control,
+        .inline-search-area button.btn-search {
+            border-radius: 0;
+            border: 0;
+            height: 54px;
+            margin-bottom: 0;
+            font-size: 14px;
+            color: #777;
+        }
+        
+        .inline-search-area .search-col .form-control {
+            padding-top: 12px;
+        }
+        
+        .inline-search-area button.btn-search {
+            padding-top: 10px;
+        }
+        
+        .inline-search-area .btn-search {
+            border-radius: 0 3px 3px 0 !important;
+            margin: 0;
+        }
+        
+        .inline-search-area .btn-search strong {
+            color: #fff;
+            margin-left: 5px;
+        }
+        
+        .inline-search-area .search-fields,
+        .inline-search-area .search-fields:hover {
+            border: none;
+            padding: 0 !important;
+        }
+        
+        .inline-search-area .bootstrap-select button {
+            padding: 15px 15px 15px 15px;
+            border-right: solid 1px #e0e0e0 !important;
+            border-radius: 0;
+            margin: 0 !important;
+        }
+        
+        .inline-search-area .dropdown-toggle::after {
+            margin-left: -4px;
+            top: 24px;
+            position: absolute;
+        }
+        
+        .main-header .inline-search-area .dropdown-menu .dropdown-item:hover {
+            -webkit-transform: none;
+            transform: none;
+        }
+        
+        .inline-search-area .btn-light:hover {
+            color: #636363;
+        }
+        
+        .inline-search-area .bootstrap-select .dropdown-toggle .filter-option {
+            position: absolute;
+            top: 4px;
+        }
+        
+        .inline-search-area .form-control {
+            border-right: solid 1px #5a5a5a !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" title="Business Theme Bootstrap Theme">
+                    <img class="logo" height="50px" src="{% static 'images/elite.png' %}" alt="Elite Africa" style="margin-top:25px; margin-left:25px;" />
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'home' %}" class="smooth-scroll">HOME</a></li>
+                    <li><a href="{% url 'user_detail' user.id %}" class="smooth-scroll">CURRENT USER</a></li>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{% url 'home' %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            SERVICES
+                        </a>
+                       
+                    </li> -->
+                    <!-- <li><a href="#gallery" class="smooth-scroll">TRAVEL</a></li> -->
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{% url 'home' %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            MORE
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+
+                            {% if user.is_authenticated %}
+                            <!-- ADMIN CHECK -->
+                            {% if user.is_admin %}
+                            <li><a class="dropdown-item" href="{% url 'admin:index' %}">ADMIN</a></li>
+                            {% endif %}
+                            <!-- END ADMIN CHECK -->
+
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">SIGN OUT</a></li>
+                            <li><a class="dropdown-item" href="{% url 'profile' %}">MY PROFILE</a></li>
+                            {% else %}
+                            <li><a class="dropdown-item" href="{% url 'register' %}">SIGN UP</a></li>
+                            <li><a class="dropdown-item" href="{% url 'login' %}">SIGN IN</a></li>
+                            {% endif %}
+
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    {% include "messages.html" %} {% block content %} {% endblock content %}
+
+
+    <footer id="subfooter" class="clearfix">
+        <div class="container">
+            <div class="row text-justify">
+                <div class="col-md-4">
+                    <h3>ABOUT US</h3>
+                    <br />
+                    <p>395, Francis Baard, Arcadia 45086, Johannesburg</p>
+                    <p>+27 888 455 6677</p>
+                    <p><a href="mailto:mail@example.com" style="color:#4BAFD3;">contact@eliteafriqa.com</a></p>
+                    <br>
+                    <p>54, North Road, PA 45086, Pretoria</p>
+                    <p>+27 888 455 6677</p>
+                    <p><a href="mailto:mail@example.com" style="color:#4BAFD3;">contact@eliteafriqa.com</a></p>
+                </div>
+
+                <div class="col-md-4">
+                    <h3>OTHER PARTNERS</h3>
+                    <br />
+                    <p>Stemgon Pty Ltd</p>
+                    <p>395 Francis Baard Street.</p>
+                    <p><a href="https://www.stemgon.com/" style="color:#4BAFD3;">www.stemgon.com</a></p>
+                    <br>
+                    <!-- <p><a href="mailto:mail@example.com" style="color:#4BAFD3;">mail@example.com</a></p> -->
+                    <p>Surevisions Organization</p>
+                    <p>395 Francis Baard Street.</p>
+                    <p><a href="https://www.surevisions.co.za/" style="color:#4BAFD3;">www.surevisions.co.za</a></p>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="https://api.whatsapp.com/send?phone=+27832448550&text=Hi%21%20Stemgon%20Team%20I'm%20interested %20in%20your%20business." class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
+    </a>
+
+
+    <footer id="footer" class="clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <p>Developed by
+                        <a href="https://www.stemgon.co.za" title="Stemgon UI" style="color: #4BAFD3;"></a>
+                        <a href="https://www.stemgon.com" title="Stemgon" style="color: #4BAFD3;">Stemgon Pty Ltd</a>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        &copy; Copyright, All rights reserved!.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mixitup.min.js' %}"></script>
+    <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script type="text/javascript" src="http://prepbootstrap.com/Content/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
+
+    <script type="text/javascript">
+        jQuery(function($) {
+            // Mix It Up Gallery and Magnific Popup setup
+            $('.container-gallery').mixItUp();
+            $('.container-gallery').magnificPopup({
+                delegate: 'a',
+                type: 'image'
+            });
+            // Google Maps setup
+            var googlemap = new google.maps.Map(
+                document.getElementById('googlemap'), {
+                    center: new google.maps.LatLng(44.5403, -78.5463),
+                    zoom: 8,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                }
+            );
+        });
+
+        $(document).ready(function() {
+            $("#order1").shieldQRcode({
+                mode: "byte",
+                size: 150,
+                value: "https://somesite/order?plan=1"
+            });
+            $("#order2").shieldQRcode({
+                mode: "byte",
+                size: 150,
+                value: "https://somesite/order?plan=2"
+            });
+            $("#order3").shieldQRcode({
+                mode: "byte",
+                size: 150,
+                value: "https://somesite/order?plan=3"
+            });
+        });
+    </script>
+
+</body>
+
+</html>

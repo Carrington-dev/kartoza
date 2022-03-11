@@ -1,0 +1,160 @@
+.posts-by-category ul {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.posts-by-category ul li {
+    margin-bottom: 10px;
+}
+
+.posts-by-category ul li a {
+    color: #535353;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.posts-by-category ul li:last-child {
+    border-bottom: none;
+    margin: 0;
+}
+
+
+/** Tags box start **/
+
+.tags-box ul li {
+    display: inline-block;
+}
+
+.tags-box ul li a {
+    border: 1px solid #c5c5c5;
+    background: #fff;
+    color: #535353;
+    display: inline-block;
+    font-size: 14px;
+    margin: 0 0 5px;
+    padding: 5px 13px;
+    font-weight: 400;
+    text-transform: capitalize;
+    border-radius: 3px;
+}
+
+.tags-box ul li a:hover {
+    color: #fff;
+}
+
+
+/** Recent posts start **/
+
+.recent-posts .media img {
+    width: 60px;
+    border-radius: 2px;
+}
+
+.recent-posts .media h5 {
+    margin-bottom: 7px;
+    font-weight: 500;
+}
+
+.recent-posts .media h5 a {
+    font-size: 18px;
+    color: #383737;
+}
+
+.recent-posts .media h5 a:hover {
+    color: #2d2d2d;
+}
+
+.recent-posts .listing-post-meta {
+    font-size: 14px;
+    color: #757474;
+}
+
+.recent-posts .listing-post-meta a {
+    color: #757474;
+}
+
+.sidebar-right {
+    margin: 0 0 30px 0;
+    background: #fff;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-left {
+    margin: 0 0 30px 0;
+    background: #fff;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
+}
+
+.widget {
+    padding: 30px 20px;
+    border-bottom: solid 1px #e2e2e2;
+}
+
+.widget-2 {
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.widget-3 {
+    border-bottom: none;
+}
+
+.single-block {
+    margin-bottom: 30px;
+}
+
+.sidebar-title {
+    font-size: 20px;
+    position: relative;
+    margin: 0 0 25px;
+    font-weight: 600;
+}
+
+.sidebar .search-box {
+    padding: 20px 20px 0 20px;
+    margin-bottom: 0;
+}
+
+.form-search {
+    position: relative;
+}
+
+.form-search .form-control {
+    box-shadow: none;
+    border: 1px solid #F7F7F7;
+    background: #F7F7F7;
+    border-radius: 3px;
+    height: 45px;
+}
+
+.form-search .btn {
+    background: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 12px 9px 13px;
+}
+
+.form-search .btn:active,
+.form-search .btn:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.form-search .btn i {
+    color: #777;
+}
+
+.form-search .form-group,
+.form-search .form-control {
+    width: 100%;
+}
+
+.blog-1 .blog-photo {
+    position: relative;
+}
+
+.blog-1 .blog-photo img {
+    width: 100%;
+}
