@@ -40,16 +40,9 @@ class MyAccountManager(BaseUserManager):
 
 
 class UserAccount(AbstractBaseUser):
-	# country 				= models.CharField(max_length=200, choices=countries, default="ZA")
-	# country  				= models.CharField(max_length=400, blank=True, null=True)
 	location 				= models.CharField(max_length=500, blank=True, null=True)
-	# city 					= models.CharField(max_length=100, blank=True, null=True)
-	# address 				= models.CharField(max_length=250, blank=True, null=True)
-	# suburb 					= models.CharField(max_length=250, blank=True, null=True)
-	# province 				= models.CharField(max_length=250, blank=True, null=True)
 	latitude 				= models.FloatField(default=0)
 	longitude 				= models.FloatField(default=0)
-	# zip_code 				= models.CharField(max_length=6, blank=True, null=True)
 	bio 					= models.TextField(blank=True, null=True)
 	email 					= models.EmailField(verbose_name="email", max_length=60, unique=True)
 	username 				= models.CharField(max_length=30, unique=True)
@@ -96,7 +89,6 @@ class UserAccount(AbstractBaseUser):
 
 class Profile(models.Model):
 	user = models.OneToOneField(UserAccount, on_delete=models.CASCADE)
-	# image = models.ImageField(default="profile_pics/default.png", upload_to="profile_pics")
 	image = ResizedImageField(size=[300, 300], crop=['middle', 'center'], default="profile_pics/default.png", upload_to="profile_pics")
 
 
@@ -107,11 +99,8 @@ class Profile(models.Model):
 	@receiver(post_save, sender=UserAccount)
 	def create_profile(sender, instance, created, **kwargs):
 		if created:
-			# profile =
 			Profile.objects.create(user=instance)
-			# profile.save()
-
-
+			
 
 	@receiver(post_save, sender=UserAccount)
 	def save_profile(sender, instance, **kwargs):
