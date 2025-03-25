@@ -8,8 +8,8 @@ decorator
 Django
 django-crispy-forms
 django-grappelli
-django-resized=
-folium==0.12.1.post1
+django-resized
+folium
 future
 geocoder
 idna
